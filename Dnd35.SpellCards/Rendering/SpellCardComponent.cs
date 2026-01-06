@@ -150,12 +150,28 @@ public sealed class SpellCardComponent : IComponent
         if (!string.IsNullOrWhiteSpace(_spell.TargetOrArea))
             details.Add(_spell.TargetOrArea);
 
-        details.Add($"Duration: {_spell.Duration}");
-        details.Add($"Save: {_spell.Save}");
-        details.Add($"SR: {_spell.Sr}");
-        details.Add($"Components: {_spell.Components}");
+        if (!string.IsNullOrWhiteSpace(_spell.Duration))
+            details.Add($"Duration: {_spell.Duration}");
+
+        if (ShouldRenderValue(_spell.Save))
+            details.Add($"Save: {_spell.Save}");
+
+        if (ShouldRenderValue(_spell.Sr))
+            details.Add($"SR: {_spell.Sr}");
+
+        if (!string.IsNullOrWhiteSpace(_spell.Components))
+            details.Add($"Components: {_spell.Components}");
 
         return details;
+    }
+
+    private static bool ShouldRenderValue(string value)
+    {
+        if (string.IsNullOrWhiteSpace(value))
+            return false;
+
+        var v = value.Trim();
+        return v is not "—" and not "-";
     }
 
     private void ComposeTags(ColumnDescriptor col, string schoolColor)

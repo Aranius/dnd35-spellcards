@@ -437,12 +437,28 @@ public static class SpellSplitter
         if (!string.IsNullOrWhiteSpace(spell.TargetOrArea))
             details.Add(spell.TargetOrArea);
 
-        details.Add($"Duration: {spell.Duration}");
-        details.Add($"Save: {spell.Save}");
-        details.Add($"SR: {spell.Sr}");
-        details.Add($"Components: {spell.Components}");
+        if (!string.IsNullOrWhiteSpace(spell.Duration))
+            details.Add($"Duration: {spell.Duration}");
+
+        if (ShouldRenderValue(spell.Save))
+            details.Add($"Save: {spell.Save}");
+
+        if (ShouldRenderValue(spell.Sr))
+            details.Add($"SR: {spell.Sr}");
+
+        if (!string.IsNullOrWhiteSpace(spell.Components))
+            details.Add($"Components: {spell.Components}");
 
         return details;
+    }
+
+    private static bool ShouldRenderValue(string value)
+    {
+        if (string.IsNullOrWhiteSpace(value))
+            return false;
+
+        var v = value.Trim();
+        return v is not "014" and not "-";
     }
 
     private static float MeasureMetadataColumns(IReadOnlyList<string> lines)

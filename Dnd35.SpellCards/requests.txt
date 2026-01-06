@@ -1,9 +1,9 @@
-Alarm
-Burning Hands
-Comprehend Languages
-Hold Portal
-Identify
-Mage Armor
-Magic Missile
-Protection from Evil
-Shield
+Grease
+Disguise Self
+Mirror Image
+Enlarge Person
+Detect Undead
+Undetectable Alignment
+Locate Object
+Fox's Cunning
+Deep Slumber
