@@ -24,22 +24,22 @@ Create printable, Magic: The Gathering-sized cards for a list of spells. The too
 ### Build from source
 ```bash
 dotnet restore
-dotnet run --project Dnd35.SpellCards
+dotnet run --project SpellCards
 ```
 
 ### Publishing your own zips
 Produce trimmed, platform-specific bundles ready for upload:
 ```bash
 # Windows x64
-dotnet publish Dnd35.SpellCards -c Release -r win-x64 --self-contained false -p:PublishTrimmed=true
+dotnet publish SpellCards -c Release -r win-x64 --self-contained false -p:PublishTrimmed=true
 
 # Linux x64
-dotnet publish Dnd35.SpellCards -c Release -r linux-x64 --self-contained false -p:PublishTrimmed=true
+dotnet publish SpellCards -c Release -r linux-x64 --self-contained false -p:PublishTrimmed=true
 
 # macOS (Apple Silicon)
-dotnet publish Dnd35.SpellCards -c Release -r osx-arm64 --self-contained false -p:PublishTrimmed=true
+dotnet publish SpellCards -c Release -r osx-arm64 --self-contained false -p:PublishTrimmed=true
 ```
-Each command drops binaries under `Dnd35.SpellCards/bin/Release/net9.0/<rid>/publish/`. Zip that folder (it contains `requests.txt`, `settings.json`, fonts, etc.) and attach it to a GitHub release.
+Each command drops binaries under `SpellCards/bin/Release/net9.0/<rid>/publish/`. Zip that folder (it contains `requests.txt`, `settings.json`, fonts, etc.) and attach it to a GitHub release.
 
 ## Configuration Files
 - **`requests.txt`** - spell names to render. Duplicate names are ignored.

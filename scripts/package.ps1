@@ -2,7 +2,7 @@ param(
     [string]$Configuration = "Release"
 )
 
-$project = (Resolve-Path (Join-Path $PSScriptRoot "../Dnd35.SpellCards/Dnd35.SpellCards.csproj")).Path
+$project = (Resolve-Path (Join-Path $PSScriptRoot "../SpellCards/SpellCards.csproj")).Path
 $artifactsDir = Join-Path $PSScriptRoot "artifacts"
 $publishRoot = Join-Path $artifactsDir "publish"
 
