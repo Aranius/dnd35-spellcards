@@ -1,4 +1,4 @@
-﻿# D&D Spell Cards (MTG size) PDF Generator
+﻿# D&D & Pathfinder Spell Cards (MTG size) PDF Generator
 
 Create printable, Magic: The Gathering-sized cards for a list of spells. The tool pulls rules text (3.5 from d20srd.org; 5e from Open5e; PF1 from PathfinderSpellDb; PF2 from Archives of Nethys), optionally condenses it with an LLM (hosted OpenAI-compatible endpoint or local Ollama), and renders a high-resolution PDF via QuestPDF.
 
